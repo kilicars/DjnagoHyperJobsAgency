@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <meta charset="UTF-8">
+    <title>Create New Resume</title>
+</head>
+<body>
+    <form method="post" action="/resume/new">
+        {% csrf_token %}
+        <label for="description">Description: </label>
+        <input class="description" id="description" name="description"><br><br>
+        <button type="submit">Create Resume</button>
+    </form>
+</body>
+</html>

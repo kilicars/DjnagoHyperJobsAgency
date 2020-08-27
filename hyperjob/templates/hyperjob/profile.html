@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+    {% if resumes %}
+        <h3>My Resumes</h3>
+        {% for resume in resumes %}
+        <div>
+            {{ resume.author.username }}: {{ resume.description }}
+        </div>
+        {% endfor %}
+    {% endif %}
+
+    {% if vacancies %}
+        <h3>My Vacancies</h3>
+        {% for vacancy in vacancies %}
+        <div>
+            {{ vacancy.author.username }}: {{ vacancy.description }}
+        </div>
+        {% endfor %}
+    {% endif %}
+
+    <form>
+        {% csrf_token %}
+        <div>
+            <a href="/resume/new">Create New Resume</a><br><br>
+        </div>
+        <div>
+            <a href="/vacancy/new">Create New Vacancy</a>
+        </div>
+    </form>
+</body>
+</html>

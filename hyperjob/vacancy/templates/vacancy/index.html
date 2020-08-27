@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <meta charset="UTF-8">
+    <title>Vacancies</title>
+</head>
+<body>
+    {% if not vacancies %}
+        <p>No vacancies in the system yet :(</p>
+    {% endif %}
+
+    {% for vacancy in vacancies %}
+    <div>
+        {{ vacancy.author.username }}: {{ vacancy.description }}
+    </div>
+    {% endfor %}
+</body>
+</html>
